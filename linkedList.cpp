@@ -13,6 +13,8 @@ struct linkedListElement
 	linkedListElement* nextElement; //This will be null if at end of list
 };
 
+//TODO: Add arguments for a .txt file input which will alter the population of the linked list
+
 int main()
 {
 	string option = "restart";
@@ -23,7 +25,7 @@ int main()
 		{
 			linkedListElement* nextElementPointer = NULL; //We create a pointer that will be used as the end of the list
 			int n;
-			cout << "How many elements would you like this LL to have? ";
+			cout << "How many elements would you like this LL to have?";
 			cin >> n;
 			
 			while(option!="y"&&option!="n") //Checks an appropriate selection has been made
