@@ -30,28 +30,29 @@ int main()
 			
 			while(option!="y"&&option!="n") //Checks an appropriate selection has been made
 			{
-				cout << "Would you like to populate this linked list randomly (y/n)? Your choice will automatically be overridden for list sizes greater than 10: ";
+				cout << "Populate randomly (y/n)? ";
 				cin >> option;
 				
 				if(option=="y"||n>10)
 				{
+					if(n>10) cout << "Your list will be automatically populated randomly due to its size... \n";
 					int maxValue;
 					int minValue;
 					int jumps;
-					cout << "Please enter the maximum value you would like the data to take (integer): ";
+					cout << "Enter the max random value (integer): ";
 					cin >> maxValue;
-					cout << "Please enter the minimum value you would like the data to take (integer): ";
+					cout << "Enter the min random value (integer): ";
 					cin >> minValue;
-					cout << "Please enter the required spacing you would like (just enter 1 for a random range in all numbers (integer): ";
+					cout << "Enter the spacing between these (integer): ";
 					cin >> jumps;
-					if(jumps>maxValue||minValue>maxValue)
+					if(jumps>maxValue||minValue>maxValue||jumps<1||minValue<0)
 					{
 						cout << "These parameters are not compatible, please try again...\n";
 						option="NOT VALID";
 					}
 					else
 					{
-						maxValue = maxValue + (jumps-((maxValue-minValue)%jumps)); //Sanity check to ensure that we have number of jumps that eventually reaches maximum (can't have 3->4 with jumps 2 : this will change to 3->5)
+						maxValue = maxValue + (((maxValue-minValue)%jumps)); //Sanity check to ensure that we have number of jumps that eventually reaches maximum (can't have 3->4 with jumps 2 : this will change to 3->5)
 						cout << "Running with the following parameters... (Your MaxValue may have been changed)\n";
 						cout << "MaxValue: " << maxValue << "\n";
 						cout << "MinValue: " << minValue << "\n";
@@ -98,7 +99,7 @@ int main()
 			
 			while(accessPointer!=NULL) //Sequentially searches through the linked list from start to end and outputs the numbers of elements which contain the data (in the reverse order to that entered)
 			{
-				cout << "Checking element " << numberCheck << ", data is: " << accessPointer->data << "\n";
+				//cout << "Checking element " << numberCheck << ", data is: " << accessPointer->data << "\n";
 				if(accessPointer->data==searchInt)
 				{
 					cout << "FOUND! In element number " << numberCheck << "\n";
