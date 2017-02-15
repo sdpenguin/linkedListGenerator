@@ -5,6 +5,8 @@
 #include <random>
 #include <time.h>
 
+//PLEASE NOTE -> does not work when you want to delete the first element and subsequent elements, see the corrected version linkedListFile
+
 using namespace std;
 
 struct linkedListElement
